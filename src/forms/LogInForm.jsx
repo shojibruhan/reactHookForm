@@ -8,10 +8,21 @@ const LogInForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm();
 
   const submitForm = (formData) => {
     console.log(formData);
+    const user = { email: "a@a.com", password: "12345678" };
+    const found =
+      formData.email === user.email && formData.password === user.password;
+
+    if (!found) {
+      setError("root.random", {
+        message: `User with email ${formData.email} is not Found`,
+        type: "random",
+      });
+    }
   };
 
   return (
@@ -49,8 +60,11 @@ const LogInForm = () => {
             />
           </Field>
         </FieldSet>
+        <div className=" italic text-rose-600 text-base rounded-md  px-1 py-1">
+          {errors?.root?.random?.message}
+        </div>
         <Field>
-          <button className="bg-purple-500 border rounded-lg text-base text-white p-1 cursor-pointer">
+          <button className="bg-purple-500 border rounded-lg text-base text-white p-1 cursor-pointer m-auto">
             LogIn
           </button>
         </Field>
