@@ -1,11 +1,10 @@
 import React from "react";
-import FieldSet from "./components/FieldSet";
+import LogInForm from "./forms/LogInForm";
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl text-cyan-500 font-semibold">React Hook Form</h1>
-      <FieldSet />
+      <LogInForm />
     </div>
   );
 };
