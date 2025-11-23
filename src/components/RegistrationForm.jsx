@@ -32,7 +32,7 @@ const LogInForm = () => {
               name="picture"
               id="picture"
               className={`p-2 border box-border w-[300px] rounded-md ${
-                errors.fname ? "border-red-800" : "border-gray-200"
+                errors.picture ? "border-red-800" : "border-gray-200"
               }`}
             />
           </Field>
