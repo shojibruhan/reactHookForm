@@ -1,5 +1,6 @@
 import React from "react";
-import LogInForm from "./part_2/LogInForm";
+// import LogInForm from "./part_2/LogInForm";
+import Register from "./part_2/components/Register";
 // import RegistrationForm from "./components/RegistrationForm";
 // import LogInForm from "./forms/LogInForm";
 
@@ -8,7 +9,9 @@ const App = () => {
     <div>
       {/* <LogInForm /> */}
       {/* <RegistrationForm /> */}
-      <LogInForm />
+      {/* <LogInForm /> */}
+      <hr />
+      <Register />
     </div>
   );
 };
