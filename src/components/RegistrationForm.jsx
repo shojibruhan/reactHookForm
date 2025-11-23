@@ -116,7 +116,7 @@ const LogInForm = () => {
             return (
               <div key={field.id} className="flex justify-between items-center">
                 <Field
-                  label={"Social Name"}
+                  label="Social Name"
                   //   error={errors.(`socials[${index}].name`)}
                 >
                   <input
@@ -128,7 +128,7 @@ const LogInForm = () => {
                   />
                 </Field>
                 <Field
-                  label={"Social URL"}
+                  label="Social URL"
                   //   error={errors.(`socials[${index}].name`)}
                 >
                   <input

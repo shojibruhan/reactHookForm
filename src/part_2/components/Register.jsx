@@ -99,14 +99,47 @@ const Register = () => {
 
         <hr />
         <FieldSet label="Enter your social handle">
-          <Field label="Social Name">
-            <input
-              type="text"
-              className={`p-2 border box-border w-[300px] rounded-md ${
-                errors.fname ? "border-red-800" : "border-gray-200"
-              }`}
-            />
-          </Field>
+          {fields.map((field, index) => {
+            return (
+              <div key={index} className="flex justify-between items-center">
+                <Field label="Social Name">
+                  <input
+                    type="text"
+                    id={`socials[${index}].name`}
+                    name={`socials[${index}].name`}
+                    {...register(`socials[${index}].name`)}
+                    className={`p-2 border box-border w-[300px] rounded-md ${
+                      errors.name ? "border-red-800" : "border-gray-200"
+                    }`}
+                  />
+                </Field>
+                <Field label="Social URL">
+                  <input
+                    type="text"
+                    id={`socials[${index}].url`}
+                    name={`socials[${index}].url`}
+                    {...register(`socials[${index}].url`)}
+                    className={`p-2 border box-border w-[300px] rounded-md ${
+                      errors.url ? "border-red-800" : "border-gray-200"
+                    }`}
+                  />
+                </Field>
+                <button
+                  className="text-2xl  mt-8 mr-2"
+                  onClick={() => remove(index)}
+                >
+                  🗑️
+                </button>
+              </div>
+            );
+          })}
+
+          <button
+            className="mt-8 text-white text-base bg-gray-500 border rounded-lg p-1 m-auto cursor-pointer"
+            onClick={() => append({ name: "", url: "" })}
+          >
+            Add a Social Handle
+          </button>
         </FieldSet>
         <FieldSet>
           <button className="bg-purple-500 border rounded-lg text-base text-white p-2 cursor-pointer m-auto">
