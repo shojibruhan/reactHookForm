@@ -1,7 +1,8 @@
 import React from "react";
-import { useFieldArray, useForm } from "react-hook-form";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
 import Field from "./Field";
 import FieldSet from "./FieldSet";
+import Number from "./Number";
 
 const Register = () => {
   const {
@@ -78,21 +79,41 @@ const Register = () => {
             />
           </Field>
           <Field label="Age" error={errors.age}>
-            <input
-              {...register("age", {
-                required: "Age is required",
-                max: {
-                  value: 100,
-                  message: "Age must be between 0 and 100",
-                },
-              })}
-              type="number"
+            <Controller
               name="age"
-              id="age"
-              placeholder="Enter Your Age"
-              className={`p-2 border box-border w-[300px] rounded-md ${
-                errors.age ? "border-red-800" : "border-gray-200"
-              }`}
+              defaultValue={0}
+              control={control}
+              // eslint-disable-next-line no-unused-vars
+              render={({ field: { ref, ...field } }) => (
+                <Number
+                  id="age"
+                  className={`p-2 border box-border w-[300px] rounded-md ${
+                    errors.age ? "border-red-800" : "border-gray-200"
+                  }`}
+                  {...field}
+                />
+              )}
+              rules={{
+                min: {
+                  value: 18,
+                  message: "You must be at least 18 years old",
+                },
+              }}
+              // <input
+              //   {...register("age", {
+              //     required: "Age is required",
+              //     max: {
+              //       value: 100,
+              //       message: "Age must be between 0 and 100",
+              //     },
+              //   })}
+              //   type="number"
+              //   name="age"
+              //   id="age"
+              //   placeholder="Enter Your Age"
+              //   className={`p-2 border box-border w-[300px] rounded-md ${
+              //     errors.age ? "border-red-800" : "border-gray-200"
+              //   }`}
             />
           </Field>
         </FieldSet>

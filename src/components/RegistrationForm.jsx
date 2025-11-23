@@ -83,6 +83,8 @@ const LogInForm = () => {
             <Controller
               name="age"
               control={control}
+              defaultValue={1}
+              // eslint-disable-next-line no-unused-vars
               render={({ field: { ref, ...field } }) => (
                 <NumberInput
                   id="age"
